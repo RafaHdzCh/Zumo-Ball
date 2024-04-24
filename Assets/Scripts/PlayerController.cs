@@ -11,10 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform focalPoint;
     [SerializeField] private GameObject powerUpIndicator;
     
-    void Update()
+    void FixedUpdate()
     {
         float forwardInput = Input.GetAxis("Vertical");
-        rigidbody.AddForce(focalPoint.forward * (speed * forwardInput));
+        rigidbody.AddForce(focalPoint.forward * (speed * forwardInput), ForceMode.Force);
         powerUpIndicator.transform.position = transform.position + powerUpIndicatorOffset;
     }
 
